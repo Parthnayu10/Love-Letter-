@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>For My Love 💖</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Georgia', cursive;
+      background: linear-gradient(to bottom right, #ffe4ec, #fff0f5);
+      overflow-x: hidden;
+    }
+    .container {
+      max-width: 90%;
+      margin: auto;
+      padding: 20px;
+    }
+    .heart {
+      text-align: center;
+      font-size: 80px;
+      animation: pulse 1.5s infinite;
+      margin: 20px 0 10px;
+      cursor: pointer;
+      user-select: none;
+    }
+    .tap-note {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #888;
+      margin-bottom: 10px;
+      user-select: none;
+    }
+    .countdown {
+      text-align: center;
+      font-size: 1.1rem;
+      color: #e75480;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.3); }
+    }
+
+    /* Carousel */
+    .carousel-wrapper {
+      position: relative;
+      overflow: hidden;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      margin-bottom: 20px;
+    }
+    .carousel {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      width: max-content;
+    }
+    .carousel img {
+      width: 100vw;
+      max-height: 300px;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    .carousel-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(255, 105, 180, 0.7);
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      cursor: pointer;
+      font-size: 18px;
+      border-radius: 50%;
+      z-index: 10;
+      user-select: none;
+    }
+    .prev { left: 10px; }
+    .next { right: 10px; }
+
+    /* Letter */
+    .letter {
+      background: white;
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 10px 30px rgba(255, 105, 180, 0.3);
+      margin-top: 20px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 2s forwards;
+    }
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    h1 {
+      color: #e75480;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #444;
+    }
+    .signature {
+      text-align: right;
+      font-style: italic;
+      color: #e75480;
+      margin-top: 20px;
+    }
+
+    /* Falling Hearts */
+    .heart-fall {
+      position: fixed;
+      top: -50px;
+      font-size: 24px;
+      color: #ff69b4;
+      animation: fall linear infinite;
+      pointer-events: none;
+      z-index: 9999;
+      user-select: none;
+    }
+    @keyframes fall {
+      0% { transform: translateY(-50px); opacity: 1; }
+      100% { transform: translateY(110vh); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="heart" id="scrollToLetter">❤️</div>
+  <div class="tap-note">(Tap heart to scroll & toggle music, tap anywhere else to play music)</div>
+  <div class="countdown" id="countdown"></div>
+
+  <div class="container">
+    <!-- Image Carousel -->
+    <div class="carousel-wrapper">
+      <div class="carousel" id="carousel">
+        <img src="photo1.jpeg" alt="Photo 1">
+        <img src="photo2.jpg" alt="Photo 2">
+        <img src="photo3.jpg" alt="Photo 3">
+        <img src="photo4.jpg" alt="Photo 4">
+        <img src="photo5.jpg" alt="Photo 5">
+        <img src="photo6.jpg" alt="Photo 6">
+        <img src="photo7.jpg" alt="Photo 7">
+      </div>
+      <button class="carousel-button prev" onclick="prevSlide()">‹</button>
+      <button class="carousel-button next" onclick="nextSlide()">›</button>
+    </div>
+
+    <!-- Love Letter -->
+    <div class="letter" id="letter">
+      <h1>To the Love of My Life 💕</h1>
+      <p>
+        My beloved Darling ❤️,<br><br>
+        I have true feelings that we are made for each other — soulmates destined to be together. The best part of my life has been meeting you, making memories with you, loving you, and taking care of you. And of course, the sweet romance we share during our video calls.<br><br>
+        I seriously want to marry you and have children with you, no matter what happens. I want only you — nobody else. I have dreamed so many beautiful dreams with you by my side.<br><br>
+        I am eagerly waiting to see you in September and hold you tightly in my arms. I know that when we finally meet and hug, we might cry because this long distance will no longer keep us apart.<br><br>
+        I truly love you from the bottom of my heart, and I would fight the whole world just for you. We share a strong bond and deep connection — your heart is my home.<br><br>
+        Please promise me you’ll never leave me alone in this life. I want to support and motivate you to achieve your dreams and succeed in everything you do.<br><br>
+        Since you came into my life, I have learned how deeply someone can love me and what my true value is in this world. No one has ever cared for me, supported me, loved me, and guided me the way you have.<br><br>
+        You’ve shown me what real love is, and I am so happy in this relationship. I know I will be even happier when we are married and share our lives forever.<br><br>
+      </p>
+      <hr>
+      <p>
+        My dearest love,<br><br>
+        Every moment with you is a beautiful syntax in the story of my life. Your smile compiles the best parts of me, and your laughter debugs all my worries.<br><br>
+        You’ve transformed my world into a place of wonder, where every day feels like a new function filled with hope and happiness.<br><br>
+        I may not always find the perfect words, but know this — my love for you is infinite and constant, forever running without errors.<br><br>
+        Thank you for being my greatest inspiration and my sweetest reality.<br><br>
+        I love you to infinity and beyond. 🥺❤️
+      </p>
+      <p class="signature">Forever yours,<br>~ Parth 🫶</p>
+    </div>
+  </div>
+
+  <!-- Music -->
+  <audio id="bgMusic" loop>
+    <source src="romantic_song.mp3.mp3" type="audio/mp3">
+  </audio>
+
+  <!-- JavaScript -->
+  <script>
+    const music = document.getElementById("bgMusic");
+    const heart = document.getElementById("scrollToLetter");
+
+    // Play music on body click (if paused)
+    document.body.addEventListener('click', (e) => {
+      // Prevent triggering when clicking the heart (which has separate handler)
+      if (e.target !== heart && music.paused) {
+        music.play();
+      }
+    });
+
+    // Scroll to letter and toggle music play/pause on heart click
+    heart.addEventListener('click', () => {
+      document.getElementById("letter").scrollIntoView({ behavior: "smooth" });
+      if (music.paused) {
+        music.play();
+      } else {
+        music.pause();
+      }
+    });
+
+    // Carousel Logic
+    let currentIndex = 0;
+    const carousel = document.getElementById("carousel");
+    const totalSlides = carousel.children.length;
+
+    function updateCarousel() {
+      carousel.style.transform = `translateX(-${currentIndex * 100}vw)`;
+    }
+
+    function nextSlide() {
+      currentIndex = (currentIndex + 1) % totalSlides;
+      updateCarousel();
+    }
+
+    function prevSlide() {
+      currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+      updateCarousel();
+    }
+
+    setInterval(nextSlide, 5000); // Slide every 5 seconds
+
+    // Falling hearts
+    function createHeart() {
+      const heartFall = document.createElement('div');
+      heartFall.className = 'heart-fall';
+      heartFall.innerText = '💖';
+      heartFall.style.left = Math.random() * 100 + 'vw';
+      heartFall.style.animationDuration = (Math.random() * 3 + 2) + 's';
+      document.body.appendChild(heartFall);
+      setTimeout(() => heartFall.remove(), 5000);
+    }
+    setInterval(createHeart, 500);
+
+    // Countdown to 25 September 2025
+    const countdown = document.getElementById("countdown");
+    const meetDate = new Date("2025-09-25T00:00:00");
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = meetDate - now;
+      if (diff <= 0) {
+        countdown.textContent = "We are together today! 💞";
+        return;
+      }
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hrs = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const mins = Math.floor((diff / (1000 * 60)) % 60);
+      const secs = Math.floor((diff / 1000) % 60);
+
+      countdown.textContent = `Countdown to our meeting 💑: ${days}d ${hrs}h ${mins}m ${secs}s`;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+
+</body>
+</html>
